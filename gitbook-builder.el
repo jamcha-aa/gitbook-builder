@@ -1,4 +1,4 @@
-;;; gitbook-builder.el --- build GitBook in background
+;;; gitbook-builder.el --- exports GitBook without shell
 
 ;; Copyright (C) 2018 jamcha
 
@@ -24,7 +24,7 @@
 
 ;;; Commentary:
 
-;; gitbook-builder.el builds GitBook without leaving current screen.
+;; gitbook-builder.el exports GitBook without shell executions.
 
 ;;; Code:
 (defun gitbook-builder ()
