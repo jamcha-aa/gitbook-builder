@@ -4,7 +4,8 @@
 
 ;; Author: jamcha <jamcha.aa@gmail.com>
 ;; Created: 2018-07-26
-;; Version: 1.0
+;; Last Update: 2018-08-05
+;; Version: 1.1
 ;; Package-Requires: ((emacs "24"))
 ;; Keywords: markdown, gitbook
 ;; URL: https://github.com/jamcha-aa/gitbook-builder
@@ -29,14 +30,14 @@
 ;;; Code:
 (defun gitbook-builder ()
   (interactive)
-  (async-shell-command (format "gitbook build")))
+  (async-shell-command (format "gitbook install && gitbook build")))
 
 (provide 'gitbook-builder)
 
 (defun gitbook-github ()
   (interactive)
   (let ((x (file-name-directory (buffer-file-name))) (y "docs"))
-  (async-shell-command (format "gitbook build %s ../%s" x y))))
+    (async-shell-command (format "gitbook install && gitbook build %s ../%s && rm ../%s/*.org" x y y))))
 
 (provide 'gitbook-github)
 
