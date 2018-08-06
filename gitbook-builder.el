@@ -43,7 +43,7 @@
 
 (defun gitbook-commit ()
   (interactive)
-  (async-shell-command (format "git commit -am "Build GitBook"")))
+  (async-shell-command (format "git commit -am 'Build GitBook'")))
 
 (provide 'gitbook-commit)
 
