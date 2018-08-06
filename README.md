@@ -39,6 +39,7 @@ For details, see [Setup and Installation of GitBook](https://toolchain.gitbook.c
 
   - **M-x gitbook-builder** outputs htmls into **_book**.
   - **M-x gitbook-github** outputs htmls into **docs**. This function is useful when you publish your documents on GitHub Pages.
+  - **M-x gitbook-commit"" executes "git commit -am 'Build GitBook'".
 
 # License
  This program is licensed under GPL 3.
