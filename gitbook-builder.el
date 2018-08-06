@@ -41,4 +41,10 @@
 
 (provide 'gitbook-github)
 
+(defun gitbook-commit ()
+  (interactive)
+  (async-shell-command (format "git commit -am "Build GitBook"")))
+
+(provide 'gitbook-commit)
+
 ;;; gitbook-builder.el ends here
