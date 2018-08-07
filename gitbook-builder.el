@@ -29,14 +29,31 @@
 
 ;;; Code:
 
+(defun gitbook-required-check ()
+  (cond
+   ((locate-file "SUMMARY.md" '("."))
+    (message "'README.md' not found."))
+   ((locate-file "README.md" '("."))
+    (message "'SUMMARY.md' not found."))
+   (t
+    (message "'README.md' 'SUMMARY.md' not found."))))
+
 (defun gitbook-builder ()
   (interactive)
-  (async-shell-command (format "gitbook install && gitbook build")))
+  (cond
+   ((and (locate-file "README.md" '(".")) (locate-file "SUMMARY.md" '("."))
+         (async-shell-command (format "gitbook install && gitbook build"))))
+   ((progn
+      (gitbook-required-check)))))
 
 (defun gitbook-github ()
   (interactive)
-  (let ((x (file-name-directory (buffer-file-name))) (y "docs"))
-    (async-shell-command (format "gitbook install && gitbook build %s ../%s" x y))))
+  (cond
+   ((and (locate-file "README.md" '(".")) (locate-file "SUMMARY.md" '("."))
+         (let ((x (file-name-directory (buffer-file-name))) (y "docs"))
+           (async-shell-command (format "gitbook install && gitbook build %s ../%s" x y)))))
+   ((progn
+      (gitbook-required-check)))))
 
 (provide 'gitbook-builder)
 
