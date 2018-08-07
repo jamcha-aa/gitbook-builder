@@ -4,8 +4,8 @@
 
 ;; Author: jamcha <jamcha.aa@gmail.com>
 ;; Created: 2018-07-26
-;; Last Update: 2018-08-05
-;; Version: 1.1
+;; Last Update: 2018-08-07
+;; Version: 1.2
 ;; Package-Requires: ((emacs "24"))
 ;; Keywords: markdown, gitbook
 ;; URL: https://github.com/jamcha-aa/gitbook-builder
