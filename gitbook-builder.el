@@ -28,23 +28,16 @@
 ;; gitbook-builder.el exports GitBook without shell executions.
 
 ;;; Code:
+
 (defun gitbook-builder ()
   (interactive)
   (async-shell-command (format "gitbook install && gitbook build")))
 
-(provide 'gitbook-builder)
-
 (defun gitbook-github ()
   (interactive)
   (let ((x (file-name-directory (buffer-file-name))) (y "docs"))
-    (async-shell-command (format "gitbook install && gitbook build %s ../%s && rm ../%s/*.org" x y y))))
+    (async-shell-command (format "gitbook install && gitbook build %s ../%s" x y))))
 
-(provide 'gitbook-github)
-
-(defun gitbook-commit ()
-  (interactive)
-  (async-shell-command (format "git commit -am 'Build GitBook'")))
-
-(provide 'gitbook-commit)
+(provide 'gitbook-builder)
 
 ;;; gitbook-builder.el ends here
